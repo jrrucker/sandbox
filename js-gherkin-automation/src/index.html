@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Click Button Demo Page</title>
+        <meta charset="UTF-8">
+
+        <style type="text/css">
+            body.start {
+                background-color: #fff;
+                color: #333;
+            }
+
+            body.end {
+                background-color: #c00;
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body class="start">
+
+        <button type="button" id="test-button">Click Me!</button>
+
+        <script type="text/javascript">
+
+            (function () {
+
+                window.onload = function () {
+                    document.body.className += ' ' + 'loaded';
+
+                    var button = document.getElementById('test-button');
+                    button.onclick = function () {
+                        document.body.className += ' ' + 'end';
+                    };
+                };
+
+            })();
+
+        </script>
+
+    </body>
+
+</html>
