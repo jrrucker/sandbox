@@ -6,21 +6,33 @@
         <meta charset="UTF-8">
 
         <style type="text/css">
-            body.start {
+            body.white {
                 background-color: #fff;
                 color: #333;
             }
 
-            body.end {
+            body.red {
                 background-color: #c00;
+                color: #fff;
+            }
+
+            body.blue {
+                background-color: #00c;
+                color: #fff;
+            }
+
+            body.green {
+                background-color: #0c0;
                 color: #fff;
             }
         </style>
     </head>
 
-    <body class="start">
+    <body class="white">
 
-        <button type="button" id="test-button">Click Me!</button>
+        <button type="button" class="red-button">Red</button>
+        <button type="button" class="blue-button">Blue</button>
+        <button type="button" class="green-button">Green</button>
 
         <script type="text/javascript">
 
@@ -29,9 +41,20 @@
                 window.onload = function () {
                     document.body.className += ' ' + 'loaded';
 
-                    var button = document.getElementById('test-button');
-                    button.onclick = function () {
-                        document.body.className += ' ' + 'end';
+                    var redButton = document.getElementsByClassName('red-button')[0];
+                    var blueButton = document.getElementsByClassName('blue-button')[0];
+                    var greenButton = document.getElementsByClassName('green-button')[0];
+
+                    redButton.onclick = function () {
+                        document.body.className = 'red';
+                    };
+
+                    blueButton.onclick = function () {
+                        document.body.className = 'blue';
+                    };
+
+                    greenButton.onclick = function () {
+                        document.body.className = 'green';
                     };
                 };
 

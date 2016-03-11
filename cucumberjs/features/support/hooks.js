@@ -35,7 +35,6 @@ var myHooks = function () {
                 callback();
             });
 
-        this.driver.quit();
     });
 
 };

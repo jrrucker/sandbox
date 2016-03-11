@@ -9,23 +9,25 @@ module.exports = function () {
 
     this.Given(/^I am on the demo page$/, function (callback) {
         this.driver.get('http://localhost:8000');
-        this.driver.findElement({ css: 'body.loaded' })
+        this.driver.findElement({ css: 'body.white' })
             .then(function () {
                 callback();
             });
     });
 
-    this.When(/^I click the demo button$/, function (callback) {
-        this.driver.findElement({ css: 'button#test-button' })
+    this.When(/^I click the (blue|red|green) button$/, function (color, callback) {
+        var identifier = 'button.' + color + '-button';
+        this.driver.findElement({ css: identifier })
             .click()
             .then(function () {
                 callback();
             });
     });
 
-    this.Then(/^I see the background change$/, function (callback) {
-        this.waitFor('body.end');
-        this.driver.findElement({ css: 'body.end'})
+    this.Then(/^I see the background change to (blue|red|green)$/, function (color, callback) {
+        var identifier = 'body.' + color ;
+        this.waitFor(identifier);
+        this.driver.findElement({ css: identifier})
             .then(function (elements) {
                 callback();
             });
