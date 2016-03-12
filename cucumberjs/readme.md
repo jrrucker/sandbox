@@ -15,10 +15,10 @@ At Interactive, we've done all of our automation testing in Java from the outset
 
 ## Output
 
-The output in the terminal will have the test results.
+Test results will output to the terminal:
 
 ![Test Results](assets/terminal.png)
 
-You should also have a screen shot from the end of scenario in the `screenshots` directory.
+You should also have screen shots from the end of each scenario in the `screenshots` directory:
 
 ![Test Scenario Screenshot](assets/screenshot.png)
