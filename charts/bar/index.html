@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SVG Charts | Bar Charts | Horizontal</title>
+        <meta charset="UTF-8" />
+        <style type="text/css">
+            html {
+                background: #073642;
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            /* single series */
+
+            .chart.single-series .data-group {
+                fill: #b58900;
+            }
+
+            .chart.single-series .data-group:nth-child(2) {
+                fill: #cb4b16;
+            }
+
+            .chart.single-series .data-group:nth-child(3) {
+                fill: #dc322f;
+            }
+
+            .chart.single-series .data-group:nth-child(3) {
+                fill: #dc322f;
+            }
+
+            .chart.single-series .data-group:nth-child(4) {
+                fill: #d33682;
+            }
+
+            .chart.single-series .data-group:nth-child(5) {
+                fill: #6c71c4;
+            }
+
+            /* multi series*/
+
+            .chart.multi-series .data-group .series-1 {
+                fill: #b58900;
+            }
+
+            .chart.multi-series .data-group .series-2 {
+                fill: #cb4b16;
+            }
+
+            /* axis and chrome */
+
+            .chart {
+                margin: 0 auto;
+            }
+
+            .chart .data-info .tick,
+            .chart .data-info .axis{
+                fill: #839496;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="chart single-series" width="561" height="180" role="img">
+            <g class="data-group">
+                <g class="bar">
+                    <rect width="80" height="20" y="10" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar">
+                    <rect width="160" height="20" y="40" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar">
+                    <rect width="300" height="20" y="70" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar">
+                    <rect width="320" height="20" y="100" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar">
+                    <rect width="460" height="20" y="130" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-info">
+                <g class="axis x">
+                    <rect width="561" height="1" y="170" x="10"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="10"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="60"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="110"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="160"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="210"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="260"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="310"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="360"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="410"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="460"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="510"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="170" x="560"></rect>
+                </g>
+            </g>
+        </svg>
+
+        <svg class="chart multi-series" width="561" height="380" role="img">
+            <g class="data-group">
+                <g class="bar series-1">
+                    <rect width="80" height="20" y="10" x="10"></rect>
+                </g>
+                <g class="bar series-2">
+                    <rect width="1600" height="20" y="40" x="10"></rect>
+                </g>
+
+            </g>
+            <g class="data-group">
+                <g class="bar series-1">
+                    <rect width="1600" height="20" y="80" x="10"></rect>
+                </g>
+                <g class="bar series-2">
+                    <rect width="320" height="20" y="110" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar series-1">
+                    <rect width="320" height="20" y="150" x="10"></rect>
+                </g>
+                <g class="bar series-2">
+                    <rect width="300" height="20" y="180" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar series-1">
+                    <rect width="80" height="20" y="220" x="10"></rect>
+                </g>
+                <g class="bar series-2">
+                    <rect width="320" height="20" y="250" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-group">
+                <g class="bar series-1">
+                    <rect width="460" height="20" y="290" x="10"></rect>
+                </g>
+                <g class="bar series-2">
+                    <rect width="320" height="20" y="320" x="10"></rect>
+                </g>
+            </g>
+            <g class="data-info">
+                <g class="axis x">
+                    <rect width="561" height="1" y="370" x="10"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="10"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="60"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="110"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="160"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="210"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="260"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="310"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="360"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="410"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="460"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="510"></rect>
+                </g>
+                <g class="tick">
+                    <rect width="1" height="10" y="370" x="560"></rect>
+                </g>
+            </g>
+        </svg>
+    </body>
+</html>
