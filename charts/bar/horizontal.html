@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>SVG Charts | Bar Charts | Horizontal</title>
+        <style type="text/css">
+            html {
+                background: #073642;
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .chart {
+                margin: 0 auto;
+            }
+
+            .chart .bar {
+                fill: #b58900;
+            }
+
+            .chart .bar:nth-child(2) {
+                fill: #cb4b16;
+            }
+
+            .chart .bar:nth-child(3) {
+                fill: #dc322f;
+            }
+
+            .chart .bar:nth-child(3) {
+                fill: #dc322f;
+            }
+
+            .chart .bar:nth-child(4) {
+                fill: #d33682;
+            }
+
+            .chart .bar:nth-child(5) {
+                fill: #6c71c4;
+            }
+
+            .chart .tick,
+            .chart .axis{
+                fill: #839496;
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="chart" width="270" height="260" role="img">
+            <g class="bar">
+                <rect width="40" height="20" y="10" x="10"></rect>
+            </g>
+            <g class="bar">
+                <rect width="80" height="20" y="40" x="10"></rect>
+            </g>
+            <g class="bar">
+                <rect width="150" height="20" y="70" x="10"></rect>
+            </g>
+            <g class="bar">
+                <rect width="160" height="20" y="100" x="10"></rect>
+            </g>
+            <g class="bar">
+                <rect width="230" height="20" y="130" x="10"></rect>
+            </g>
+            <g class="axis">
+                <rect width="251" height="1" y="170" x="10"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="10"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="60"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="110"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="160"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="210"></rect>
+            </g>
+            <g class="tick">
+                <rect width="1" height="10" y="170" x="260"></rect>
+            </g>
+        </svg>
+    </body>
+</html>
