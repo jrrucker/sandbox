@@ -3,71 +3,10 @@
     <head>
         <title>SVG Charts | Bar Charts | Horizontal</title>
         <meta charset="UTF-8" />
-        <style type="text/css">
-            html {
-                background: #073642;
-                width: 100%;
-                height: 100%;
-            }
-
-            body {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
-
-            /* single series */
-
-            .chart.single-series .data-group {
-                fill: #b58900;
-            }
-
-            .chart.single-series .data-group:nth-child(2) {
-                fill: #cb4b16;
-            }
-
-            .chart.single-series .data-group:nth-child(3) {
-                fill: #dc322f;
-            }
-
-            .chart.single-series .data-group:nth-child(3) {
-                fill: #dc322f;
-            }
-
-            .chart.single-series .data-group:nth-child(4) {
-                fill: #d33682;
-            }
-
-            .chart.single-series .data-group:nth-child(5) {
-                fill: #6c71c4;
-            }
-
-            /* multi series*/
-
-            .chart.multi-series .data-group .series-1 {
-                fill: #b58900;
-            }
-
-            .chart.multi-series .data-group .series-2 {
-                fill: #cb4b16;
-            }
-
-            /* axis and chrome */
-
-            .chart {
-                margin: 0 auto;
-            }
-
-            .chart .data-info .tick,
-            .chart .data-info .axis{
-                fill: #839496;
-            }
-        </style>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <svg class="chart single-series" width="561" height="180" role="img">
+        <svg class="chart bar-chart single-series" width="571" height="190" role="img">
             <g class="data-group">
                 <g class="bar">
                     <rect width="80" height="20" y="10" x="10"></rect>
@@ -95,7 +34,7 @@
             </g>
             <g class="data-info">
                 <g class="axis x">
-                    <rect width="561" height="1" y="170" x="10"></rect>
+                    <rect width="551" height="1" y="170" x="10"></rect>
                 </g>
                 <g class="tick">
                     <rect width="1" height="10" y="170" x="10"></rect>
@@ -136,7 +75,7 @@
             </g>
         </svg>
 
-        <svg class="chart multi-series" width="561" height="380" role="img">
+        <svg class="chart bar-chart multi-series" width="571" height="390" role="img">
             <g class="data-group">
                 <g class="bar series-1">
                     <rect width="80" height="20" y="10" x="10"></rect>
@@ -180,7 +119,7 @@
             </g>
             <g class="data-info">
                 <g class="axis x">
-                    <rect width="561" height="1" y="370" x="10"></rect>
+                    <rect width="551" height="1" y="370" x="10"></rect>
                 </g>
                 <g class="tick">
                     <rect width="1" height="10" y="370" x="10"></rect>
