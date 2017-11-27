@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/home/jrrucker/.npm-global/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'host' ]
+2 info using npm@3.10.9
+3 info using node@v6.10.2
+4 verbose run-script [ 'prehost', 'host', 'posthost' ]
+5 info lifecycle elm-gallery@0.0.1~prehost: elm-gallery@0.0.1
+6 silly lifecycle elm-gallery@0.0.1~prehost: no script for prehost, continuing
+7 info lifecycle elm-gallery@0.0.1~host: elm-gallery@0.0.1
+8 verbose lifecycle elm-gallery@0.0.1~host: unsafe-perm in lifecycle true
+9 verbose lifecycle elm-gallery@0.0.1~host: PATH: /home/jrrucker/.npm-global/lib/node_modules/npm/bin/node-gyp-bin:/home/jrrucker/Sites/sandbox/elm-gallery/node_modules/.bin:/home/jrrucker/bin:/home/jrrucker/.npm-global/bin:/home/jrrucker/bin:/home/jrrucker/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle elm-gallery@0.0.1~host: CWD: /home/jrrucker/Sites/sandbox/elm-gallery
+11 silly lifecycle elm-gallery@0.0.1~host: Args: [ '-c', 'elm-live src/Main.elm --debug --output=elm.js --open' ]
+12 silly lifecycle elm-gallery@0.0.1~host: Returned: code: 134  signal: null
+13 info lifecycle elm-gallery@0.0.1~host: Failed to exec host script
+14 verbose stack Error: elm-gallery@0.0.1 host: `elm-live src/Main.elm --debug --output=elm.js --open`
+14 verbose stack Exit status 134
+14 verbose stack     at EventEmitter.<anonymous> (/home/jrrucker/.npm-global/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/jrrucker/.npm-global/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid elm-gallery@0.0.1
+16 verbose cwd /home/jrrucker/Sites/sandbox/elm-gallery
+17 error Linux 4.13.0-16-generic
+18 error argv "/usr/local/bin/node" "/home/jrrucker/.npm-global/bin/npm" "run" "host"
+19 error node v6.10.2
+20 error npm  v3.10.9
+21 error code ELIFECYCLE
+22 error elm-gallery@0.0.1 host: `elm-live src/Main.elm --debug --output=elm.js --open`
+22 error Exit status 134
+23 error Failed at the elm-gallery@0.0.1 host script 'elm-live src/Main.elm --debug --output=elm.js --open'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the elm-gallery package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     elm-live src/Main.elm --debug --output=elm.js --open
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs elm-gallery
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls elm-gallery
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
