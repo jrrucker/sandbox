@@ -1,14 +1,15 @@
 module View exposing (..)
 
+import Http
 import Models exposing (..)
 import Routing
 import Messages exposing (Msg)
-import Data.ImageData exposing (..)
-import Images.Models exposing (Image)
-import Images.CardView exposing (..)
-import Images.ImageView exposing (..)
+import Images.Models exposing (Image, Person)
+import Images.CardView exposing (cardView)
+import Images.ImageView exposing (imageView)
 import Html exposing (Html, div, text, program)
 import Html.Attributes exposing (class)
+import RemoteData exposing (WebData)
 
 
 view : Model -> Html Msg
@@ -17,50 +18,128 @@ view model =
         [ page model ]
 
 
+remoteDataView : (data -> Html Msg) -> WebData data -> Html Msg
+remoteDataView subview data =
+    case data of
+        RemoteData.NotAsked ->
+            loadingView
+
+        RemoteData.Loading ->
+            loadingView
+
+        RemoteData.Success model ->
+            subview model
+
+        RemoteData.Failure err ->
+            errorView err
+
+
 page : Model -> Html Msg
 page model =
     case model.route of
         Routing.ImageRoute id ->
-            case (getImage id) of
-                Just image ->
-                    imageDetail image
+            (getImage model id)
+                |> remoteDataView
+                    (\maybeImage ->
+                        case maybeImage of
+                            Just image ->
+                                (getPeople model image)
+                                    |> remoteDataView (imageView image)
 
-                Nothing ->
-                    notFoundView
+                            Nothing ->
+                                imageNotFoundView
+                    )
+
+        Routing.PersonRoute id ->
+            (getPerson model id)
+                |> remoteDataView
+                    (\maybePerson ->
+                        case maybePerson of
+                            Just person ->
+                                model.allImages
+                                    |> RemoteData.map (getImagesOfPerson person)
+                                    |> remoteDataView galleryView
+
+                            Nothing ->
+                                personNotFoundView
+                    )
 
         Routing.HomeRoute ->
-            homeView model
+            remoteDataView galleryView model.allImages
+
+        Routing.PersonNotFound ->
+            personNotFoundView
+
+        Routing.ImageNotFound ->
+            imageNotFoundView
 
         Routing.NotFoundRoute ->
-            notFoundView
+            (notFoundView "Page not found")
 
 
-imageView : Model -> Html Msg
-imageView model =
-    (imageView model)
+loadingView : Html Msg
+loadingView =
+    div
+        [ class "loading" ]
+        [ text "Loading image data... " ]
 
 
-homeView : Model -> Html Msg
-homeView model =
+errorView : Http.Error -> Html Msg
+errorView err =
+    div
+        [ class "error" ]
+        [ text ("There was an error... " ++ (toString err)) ]
+
+
+galleryView : List Image -> Html Msg
+galleryView images =
     div
         [ class "gallery" ]
-        (model.images
-            |> List.map (imageCard)
+        (images
+            |> List.map (cardView)
         )
 
 
-notFoundView : Html Msg
-notFoundView =
+imageNotFoundView : Html Msg
+imageNotFoundView =
+    (notFoundView "Image not found.")
+
+
+personNotFoundView : Html Msg
+personNotFoundView =
+    (notFoundView "Person not found.")
+
+
+notFoundView : String -> Html Msg
+notFoundView msg =
     div []
-        [ text "Image Not Found" ]
+        [ text msg ]
 
 
 
 -- Helpers
 
 
-getImage : Int -> Maybe Image
-getImage id =
-    images
-        |> List.filter (\image -> image.id == id)
-        |> List.head
+getImage : Model -> Int -> WebData (Maybe Image)
+getImage model id =
+    model.allImages
+        |> RemoteData.map (List.filter (\image -> image.id == id))
+        |> RemoteData.map (List.head)
+
+
+getPerson : Model -> Int -> WebData (Maybe Person)
+getPerson model id =
+    model.allPeople
+        |> RemoteData.map (List.filter (\person -> person.id == id))
+        |> RemoteData.map (List.head)
+
+
+getPeople : Model -> Image -> WebData (List Person)
+getPeople model image =
+    model.allPeople
+        |> RemoteData.map (List.filter (\person -> (List.member person.id image.people)))
+
+
+getImagesOfPerson : Person -> List Image -> List Image
+getImagesOfPerson person images =
+    List.filter (\image -> (List.member person.id image.people)) images

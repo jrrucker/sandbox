@@ -2,12 +2,15 @@ module Routing exposing (..)
 
 import Navigation exposing (Location)
 import UrlParser exposing (..)
-import Images.Models exposing (ImageId)
+import Images.Models exposing (ImageId, PersonId)
 
 
 type Route
     = HomeRoute
     | ImageRoute ImageId
+    | PersonRoute PersonId
+    | PersonNotFound
+    | ImageNotFound
     | NotFoundRoute
 
 
@@ -16,6 +19,7 @@ matchers =
     oneOf
         [ map HomeRoute top
         , map ImageRoute (s "image" </> int)
+        , map PersonRoute (s "person" </> int)
         ]
 
 
@@ -28,3 +32,8 @@ parseLocation location =
 imagePath : ImageId -> String
 imagePath id =
     "#/image/" ++ (toString id)
+
+
+personPath : PersonId -> String
+personPath id =
+    "#/person/" ++ (toString id)

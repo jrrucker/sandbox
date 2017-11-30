@@ -3,7 +3,6 @@ module Update exposing (..)
 import Routing exposing (parseLocation)
 import Messages exposing (Msg)
 import Models exposing (Model)
-import Images.Models exposing (Image)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -15,3 +14,9 @@ update msg model =
                     parseLocation location
             in
                 ( { model | route = newRoute }, Cmd.none )
+
+        Messages.OnLoadImages response ->
+            ( { model | allImages = response }, Cmd.none )
+
+        Messages.OnLoadPeople response ->
+            ( { model | allPeople = response }, Cmd.none )

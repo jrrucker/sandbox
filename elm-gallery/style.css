@@ -14,16 +14,31 @@
     font: 1em/1.67 'Open Sans', Arial, Sans-serif;
 }
 
-.gallery .image {
+.gallery .view-image {
     display: inline-block;
     vertical-align: top;
-    padding: .4em;
     width: 100%;
+}
+
+.gallery .image {
+    width: 100%;
+    padding: .4em;
 }
 
 .gallery .image img {
     width: 100%;
     display: block;
+}
+
+.image-details {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.image-details img {
+    display: block;
+    width: 100%;
 }
 
 @media only screen and (min-width: 400px) {

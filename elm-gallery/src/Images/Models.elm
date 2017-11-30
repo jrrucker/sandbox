@@ -1,6 +1,6 @@
 module Images.Models exposing (..)
 
-import Time.Date exposing (Date)
+import Date exposing (Date)
 
 
 -- Types
@@ -10,11 +10,26 @@ type alias ImageId =
     Int
 
 
+type alias PersonId =
+    Int
+
+
 type alias Image =
-    { id : Int
+    { id : ImageId
     , description : String
     , dateAdded : Date
     , thumbnail : String
     , fullsize : String
     , download : String
+    , people : List PersonId
     }
+
+
+type alias Person =
+    { id : PersonId
+    , name : String
+    }
+
+
+type alias ImagesContainerModel =
+    { images : List Image }

@@ -8,6 +8,7 @@ import Models exposing (..)
 import Subscriptions exposing (..)
 import Navigation exposing (Location)
 import View exposing (..)
+import Commands exposing (..)
 import Routing
 
 
@@ -20,7 +21,7 @@ init location =
         currentRoute =
             Routing.parseLocation location
     in
-        ( initialModel currentRoute, Cmd.none )
+        ( initialModel currentRoute, loadData )
 
 
 main : Program Never Model Msg

@@ -1,18 +1,20 @@
 module Models exposing (..)
 
-import Images.Models exposing (Image)
-import Data.ImageData exposing (..)
+import Images.Models exposing (Image, Person)
 import Routing exposing (Route)
+import RemoteData exposing (WebData)
 
 
 type alias Model =
-    { images : List Image
-    , route : Route
+    { route : Route
+    , allImages : WebData (List Image)
+    , allPeople : WebData (List Person)
     }
 
 
 initialModel : Route -> Model
 initialModel route =
-    { images = images
-    , route = route
+    { route = route
+    , allImages = RemoteData.Loading
+    , allPeople = RemoteData.Loading
     }

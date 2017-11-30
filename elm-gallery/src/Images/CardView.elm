@@ -1,4 +1,4 @@
-module Images.CardView exposing (..)
+module Images.CardView exposing (cardView)
 
 import Html exposing (Html, div, img, text, a)
 import Html.Attributes exposing (src, href, alt, title, class)
@@ -6,8 +6,8 @@ import Images.Models exposing (Image)
 import Routing exposing (imagePath)
 
 
-imageCard : Image -> Html msg
-imageCard image =
+cardView : Image -> Html msg
+cardView image =
     let
         path =
             imagePath image.id
@@ -16,12 +16,16 @@ imageCard image =
             [ class "view-image"
             , href path
             ]
-            [ div [ class "image" ]
-                [ img
-                    [ src image.thumbnail
-                    , alt image.description
-                    , title image.description
-                    ]
-                    []
-                ]
+            [ renderThumbnail image ]
+
+
+renderThumbnail : Image -> Html msg
+renderThumbnail image =
+    div [ class "image" ]
+        [ img
+            [ src image.thumbnail
+            , alt image.description
+            , title image.description
             ]
+            []
+        ]
